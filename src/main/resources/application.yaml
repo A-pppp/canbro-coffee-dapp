@@ -6,7 +6,7 @@ spring:
   datasource:
     username: root
     password: 1111
-    url: localhost:3304/cb_coffee
+    url: jdbc:mysql://localhost:3304/cb_coffee
     driver-class-name: com.mysql.cj.jdbc.Driver
   data:
     redis:

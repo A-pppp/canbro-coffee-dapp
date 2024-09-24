@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2024-09-24
  */
 @RestController
-@RequestMapping("/prodAttributeKey")
+@RequestMapping("/mng/prodAttributeKey")
 public class ProdAttributeKeyController {
 
 }

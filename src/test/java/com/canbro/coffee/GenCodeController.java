@@ -1,4 +1,4 @@
-package com.canbro.coffee.controller.mng;
+package com.canbro.coffee;
 
 import com.baomidou.mybatisplus.generator.FastAutoGenerator;
 import com.baomidou.mybatisplus.generator.config.OutputFile;

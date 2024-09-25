@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Html ###
+**/dist/*
+**/.local
+**/.output.js
+**/node_modules/**
+
+**/*.svg
+**/*.sh

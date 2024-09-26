@@ -18,5 +18,4 @@ public enum HttpStatus {
         this.code = code;
         this.msg = msg;
     }
-
 }

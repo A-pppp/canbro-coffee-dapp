@@ -1,7 +1,7 @@
 import { DEFAULT_LAYOUT } from '../base';
 import { AppRouteRecordRaw } from '../types';
 
-const BASE: AppRouteRecordRaw = {
+const BASIC: AppRouteRecordRaw = {
   path: '/basic',
   name: 'basic',
   component: DEFAULT_LAYOUT,
@@ -20,9 +20,21 @@ const BASE: AppRouteRecordRaw = {
         locale: 'menu.basic.blockchain',
         requiresAuth: true,
         roles: ['*'],
+        hideInMenu: false
+      },
+        
+    },
+    {
+      path: 'blockchain/blockchainAdd',
+      name: 'BlockchainAdd',
+      component: () => import('@/views/basic/blockchain/add.vue'),
+      meta: {
+        locale: 'menu.basic.blockchain.add',
+        requiresAuth: true,
+        roles: ['*'],
+        hideInMenu: true
       },
     },
-
     {
       path: 'wallet',
       name: 'Wallet',
@@ -33,7 +45,8 @@ const BASE: AppRouteRecordRaw = {
         roles: ['admin'],
       },
     },
+    
   ],
 };
 
-export default BASE;
+export default BASIC;

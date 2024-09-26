@@ -19,9 +19,16 @@ public class RetVo {
 
     public RetVo() {}
 
-    public RetVo(int code, String msg) {}
+    public RetVo(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
 
-    public RetVo(int code, String msg, Object data) {}
+    public RetVo(int code, String msg, Object data) {
+        this.code = code;
+        this.msg = msg;
+        this.data = data;
+    }
 
     public static RetVo success() {
         return new RetVo(HttpStatus.SUCCESS.getCode(), HttpStatus.SUCCESS.getMsg());

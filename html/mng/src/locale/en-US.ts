@@ -1,6 +1,11 @@
 import localeMessageBox from '@/components/message-box/locale/en-US';
 import localeLogin from '@/views/login/locale/en-US';
 
+//--------------
+import localBasic from "@/views/basic/locale/en-US";
+
+//----------------
+
 import localeWorkplace from '@/views/dashboard/workplace/locale/en-US';
 
 import localeMonitor from '@/views/dashboard/monitor/locale/en-US';
@@ -29,7 +34,7 @@ import localeUserSetting from '@/views/user/setting/locale/en-US';
 import localeSettings from './en-US/settings';
 
 export default {
-  'menu.basic': 'Base',
+  'menu.basic': 'Basic',
   'menu.dashboard': 'Dashboard',
   'menu.server.dashboard': 'Dashboard-Server',
   'menu.server.workplace': 'Workplace-Server',
@@ -65,4 +70,6 @@ export default {
   ...locale500,
   ...localeUserInfo,
   ...localeUserSetting,
+  //----------------
+  ...localBasic
 };

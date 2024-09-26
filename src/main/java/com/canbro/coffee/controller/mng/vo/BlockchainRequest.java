@@ -11,7 +11,7 @@ public class BlockchainRequest {
 
     private String blockchainName;
 
-    private Integer blockchainState;
+    private int blockchainState;
 
     private int page;
 

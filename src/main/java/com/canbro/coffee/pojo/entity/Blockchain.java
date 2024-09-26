@@ -43,9 +43,9 @@ public class Blockchain implements Serializable {
     private String blockchainMainNetwork;
 
     /**
-     * 父区块链id
+     * 区块链网络类型
      */
-    private String blockchainParentId;
+    private String blockchainNetworkType;
 
     /**
      * 状态

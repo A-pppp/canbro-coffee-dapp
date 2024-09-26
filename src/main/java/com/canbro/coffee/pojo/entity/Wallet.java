@@ -1,5 +1,6 @@
-package com.canbro.coffee.entity;
+package com.canbro.coffee.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
@@ -16,41 +17,46 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("t_mch")
-public class Mch implements Serializable {
+@TableName("t_wallet")
+public class Wallet implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
+     * 钱包id
+     */
+    @TableId(value = "wallet_id", type = IdType.AUTO)
+    private Integer walletId;
+
+    /**
      * 商户id
      */
-    @TableId("mch_id")
     private String mchId;
 
     /**
-     * 商户名称
+     * 钱包币种
      */
-    private String mchName;
+    private String walletCurrency;
 
     /**
-     * 商户省份
+     * 钱包地址
      */
-    private String mchProvince;
+    private String walletAddress;
 
     /**
-     * 商户城市
+     * 钱包地址备注
      */
-    private String mchCity;
+    private String walletMemo;
 
     /**
-     * 商户地址
+     * 钱包网络
      */
-    private String mchAddress;
+    private String walletNetwork;
 
     /**
-     * 商户状态
+     * 钱包状态
      */
-    private Integer mchState;
+    private Integer walletState;
 
     /**
      * 创建者

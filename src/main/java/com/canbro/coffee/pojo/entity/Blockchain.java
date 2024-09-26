@@ -1,6 +1,5 @@
-package com.canbro.coffee.entity;
+package com.canbro.coffee.pojo.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
@@ -17,46 +16,41 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("t_wallet")
-public class Wallet implements Serializable {
+@TableName("t_blockchain")
+public class Blockchain implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 钱包id
+     * 区块链id
      */
-    @TableId(value = "wallet_id", type = IdType.AUTO)
-    private Integer walletId;
+    @TableId("blockchain_id")
+    private String blockchainId;
 
     /**
-     * 商户id
+     * 区块链编码
      */
-    private String mchId;
+    private String blockchainCode;
 
     /**
-     * 钱包币种
+     * 区块链名称
      */
-    private String walletCurrency;
+    private String blockchainName;
 
     /**
-     * 钱包地址
+     * 区块链主网地址
      */
-    private String walletAddress;
+    private String blockchainMainNetwork;
 
     /**
-     * 钱包地址备注
+     * 父区块链id
      */
-    private String walletMemo;
+    private String blockchainParentId;
 
     /**
-     * 钱包网络
+     * 状态
      */
-    private String walletNetwork;
-
-    /**
-     * 钱包状态
-     */
-    private Integer walletState;
+    private Integer blockchainState;
 
     /**
      * 创建者

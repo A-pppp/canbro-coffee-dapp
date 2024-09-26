@@ -1,6 +1,6 @@
 package com.canbro.coffee.service;
 
-import com.canbro.coffee.entity.Mch;
+import com.canbro.coffee.pojo.entity.Mch;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

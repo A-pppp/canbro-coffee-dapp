@@ -1,6 +1,6 @@
 package com.canbro.coffee.mapper;
 
-import com.canbro.coffee.entity.TradeOrder;
+import com.canbro.coffee.pojo.entity.TradeOrder;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

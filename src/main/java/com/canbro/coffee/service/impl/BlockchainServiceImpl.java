@@ -1,6 +1,6 @@
 package com.canbro.coffee.service.impl;
 
-import com.canbro.coffee.entity.Blockchain;
+import com.canbro.coffee.pojo.entity.Blockchain;
 import com.canbro.coffee.mapper.BlockchainMapper;
 import com.canbro.coffee.service.IBlockchainService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2024-09-24
  */
 @Service
-public class BlockchainServiceImpl extends ServiceImpl<BlockchainMapper, Blockchain> implements IBlockchainService {
+public class BlockchainServiceImpl implements IBlockchainService {
 
 }

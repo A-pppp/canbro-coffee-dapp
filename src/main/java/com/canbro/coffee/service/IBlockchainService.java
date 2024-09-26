@@ -1,6 +1,6 @@
 package com.canbro.coffee.service;
 
-import com.canbro.coffee.entity.Blockchain;
+import com.canbro.coffee.pojo.entity.Blockchain;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author A-pppp
  * @since 2024-09-24
  */
-public interface IBlockchainService extends IService<Blockchain> {
+public interface IBlockchainService {
 
 }

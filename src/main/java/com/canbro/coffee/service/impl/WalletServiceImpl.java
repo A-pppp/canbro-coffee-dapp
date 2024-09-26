@@ -1,6 +1,6 @@
 package com.canbro.coffee.service.impl;
 
-import com.canbro.coffee.entity.Wallet;
+import com.canbro.coffee.pojo.entity.Wallet;
 import com.canbro.coffee.mapper.WalletMapper;
 import com.canbro.coffee.service.IWalletService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

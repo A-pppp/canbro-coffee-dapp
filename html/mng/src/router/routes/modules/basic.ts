@@ -15,7 +15,7 @@ const BASE: AppRouteRecordRaw = {
     {
       path: 'blockchain',
       name: 'Blockchain',
-      component: () => import('@/views/dashboard/workplace/index.vue'),
+      component: () => import('@/views/basic/blockchain/index.vue'),
       meta: {
         locale: 'menu.basic.blockchain',
         requiresAuth: true,

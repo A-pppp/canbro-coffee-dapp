@@ -1,4 +1,4 @@
-package com.canbro.coffee.entity;
+package com.canbro.coffee.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,56 +16,51 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("t_blockchain")
-public class Blockchain implements Serializable {
+@TableName("t_prod")
+public class Prod implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 区块链id
+     * 商品编码
      */
-    @TableId("blockchain_id")
-    private String blockchainId;
+    @TableId("prod_code")
+    private String prodCode;
 
     /**
-     * 区块链编码
+     * 商品名称
      */
-    private String blockchainCode;
+    private String prodName;
 
     /**
-     * 区块链名称
+     * 商品小图
      */
-    private String blockchainName;
+    private String prodPic;
 
     /**
-     * 区块链主网地址
+     * 商品轮播图地址
      */
-    private String blockchainMainNetwork;
+    private String prodMediaUrls;
 
     /**
-     * 父区块链id
+     * 商品分类id
      */
-    private String blockchainParentId;
+    private Integer categoryId;
 
     /**
-     * 状态
+     * 商品规格列表
      */
-    private Integer blockchainState;
+    private String attributeList;
 
     /**
-     * 创建者
+     * 商品状态
      */
-    private String createBy;
+    private Integer prodState;
 
     /**
      * 创建时间
      */
     private Integer createTime;
-
-    /**
-     * 修改者
-     */
-    private String modifyBy;
 
     /**
      * 修改时间

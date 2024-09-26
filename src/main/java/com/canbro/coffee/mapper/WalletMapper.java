@@ -1,6 +1,6 @@
 package com.canbro.coffee.mapper;
 
-import com.canbro.coffee.entity.Wallet;
+import com.canbro.coffee.pojo.entity.Wallet;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

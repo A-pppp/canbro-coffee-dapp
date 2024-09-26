@@ -1,4 +1,4 @@
-package com.canbro.coffee.entity;
+package com.canbro.coffee.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;

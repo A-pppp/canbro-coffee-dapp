@@ -1,6 +1,6 @@
 package com.canbro.coffee.mapper;
 
-import com.canbro.coffee.entity.ProdSpecs;
+import com.canbro.coffee.pojo.entity.ProdSpecs;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

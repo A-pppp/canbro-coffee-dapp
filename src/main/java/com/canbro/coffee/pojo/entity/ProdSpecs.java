@@ -1,4 +1,4 @@
-package com.canbro.coffee.entity;
+package com.canbro.coffee.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -16,26 +16,41 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@TableName("t_prod_attribute_key")
-public class ProdAttributeKey implements Serializable {
+@TableName("t_prod_specs")
+public class ProdSpecs implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     /**
-     * 属性key id
+     * 商品规格id
      */
-    @TableId("attribute_key_id")
-    private Integer attributeKeyId;
+    @TableId("prod_specs_id")
+    private Integer prodSpecsId;
 
     /**
-     * 分类id
+     * 商品id
      */
-    private Integer categoryId;
+    private Integer prodId;
 
     /**
-     * 属性key名
+     * 商户id
      */
-    private String attributeName;
+    private Integer mchId;
+
+    /**
+     * 商品库存
+     */
+    private Integer prodStock;
+
+    /**
+     * 商品价格币种
+     */
+    private String prodCurrency;
+
+    /**
+     * 商品价格
+     */
+    private Integer prodPrice;
 
     /**
      * 创建时间

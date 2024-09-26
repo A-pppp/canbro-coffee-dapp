@@ -1,6 +1,6 @@
 package com.canbro.coffee.service.impl;
 
-import com.canbro.coffee.entity.Mch;
+import com.canbro.coffee.pojo.entity.Mch;
 import com.canbro.coffee.mapper.MchMapper;
 import com.canbro.coffee.service.IMchService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

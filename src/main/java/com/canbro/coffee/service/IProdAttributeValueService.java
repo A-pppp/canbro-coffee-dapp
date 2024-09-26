@@ -1,6 +1,6 @@
 package com.canbro.coffee.service;
 
-import com.canbro.coffee.entity.ProdAttributeValue;
+import com.canbro.coffee.pojo.entity.ProdAttributeValue;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

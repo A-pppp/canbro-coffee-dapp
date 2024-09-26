@@ -1,6 +1,6 @@
 package com.canbro.coffee.service.impl;
 
-import com.canbro.coffee.entity.TradeOrder;
+import com.canbro.coffee.pojo.entity.TradeOrder;
 import com.canbro.coffee.mapper.TradeOrderMapper;
 import com.canbro.coffee.service.ITradeOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

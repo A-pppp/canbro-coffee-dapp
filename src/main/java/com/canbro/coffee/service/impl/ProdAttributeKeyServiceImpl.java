@@ -1,6 +1,6 @@
 package com.canbro.coffee.service.impl;
 
-import com.canbro.coffee.entity.ProdAttributeKey;
+import com.canbro.coffee.pojo.entity.ProdAttributeKey;
 import com.canbro.coffee.mapper.ProdAttributeKeyMapper;
 import com.canbro.coffee.service.IProdAttributeKeyService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

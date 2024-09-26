@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2024-09-24
  */
 @Service
-public class ProdAttributeKeyServiceImpl extends ServiceImpl<ProdAttributeKeyMapper, ProdAttributeKey> implements IProdAttributeKeyService {
+public class ProdAttributeKeyServiceImpl implements IProdAttributeKeyService {
 
 }

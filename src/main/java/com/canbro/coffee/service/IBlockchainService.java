@@ -1,7 +1,8 @@
 package com.canbro.coffee.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.canbro.coffee.controller.mng.vo.BlockchainRequest;
 import com.canbro.coffee.pojo.entity.Blockchain;
-import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -13,4 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IBlockchainService {
 
+    Page<Blockchain> page(BlockchainRequest blockchainRequest);
+
+    boolean add(Blockchain blockchain);
 }

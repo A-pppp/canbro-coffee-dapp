@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2024-09-24
  */
 @Service
-public class ProdCategoryServiceImpl extends ServiceImpl<ProdCategoryMapper, ProdCategory> implements IProdCategoryService {
+public class ProdCategoryServiceImpl implements IProdCategoryService {
 
 }

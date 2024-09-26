@@ -145,37 +145,37 @@ public class TradeOrder implements Serializable {
     /**
      * 创建时间
      */
-    private Integer createTime;
+    private Long createTime;
 
     /**
      * 修改时间
      */
-    private Integer modifyTime;
+    private Long modifyTime;
 
     /**
      * 支付时间
      */
-    private Integer payTime;
+    private Long payTime;
 
     /**
      * 下单时间
      */
-    private Integer placingTime;
+    private Long placingTime;
 
     /**
      * 退款时间
      */
-    private Integer refundTime;
+    private Long refundTime;
 
     /**
      * 关闭时间
      */
-    private Integer closeTime;
+    private Long closeTime;
 
     /**
      * 完成时间
      */
-    private Integer finishTime;
+    private Long finishTime;
 
     /**
      * 备注

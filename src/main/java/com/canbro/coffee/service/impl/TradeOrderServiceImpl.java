@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2024-09-24
  */
 @Service
-public class TradeOrderServiceImpl extends ServiceImpl<TradeOrderMapper, TradeOrder> implements ITradeOrderService {
+public class TradeOrderServiceImpl implements ITradeOrderService {
 
 }

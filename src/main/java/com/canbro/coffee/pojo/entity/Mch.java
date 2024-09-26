@@ -60,7 +60,7 @@ public class Mch implements Serializable {
     /**
      * 创建时间
      */
-    private Integer createTime;
+    private Long createTime;
 
     /**
      * 修改者
@@ -70,7 +70,7 @@ public class Mch implements Serializable {
     /**
      * 修改时间
      */
-    private Integer modifyTime;
+    private Long modifyTime;
 
     /**
      * 备注

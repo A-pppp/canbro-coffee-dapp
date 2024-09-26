@@ -40,10 +40,10 @@ public class ProdCategory implements Serializable {
     /**
      * 创建时间
      */
-    private Integer createTime;
+    private Long createTime;
 
     /**
      * 修改时间
      */
-    private Integer modifyTime;
+    private Long modifyTime;
 }

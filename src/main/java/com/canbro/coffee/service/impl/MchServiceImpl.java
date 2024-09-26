@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2024-09-24
  */
 @Service
-public class MchServiceImpl extends ServiceImpl<MchMapper, Mch> implements IMchService {
+public class MchServiceImpl implements IMchService {
 
 }

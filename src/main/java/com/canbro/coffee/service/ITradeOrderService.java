@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author A-pppp
  * @since 2024-09-24
  */
-public interface ITradeOrderService extends IService<TradeOrder> {
+public interface ITradeOrderService {
 
 }

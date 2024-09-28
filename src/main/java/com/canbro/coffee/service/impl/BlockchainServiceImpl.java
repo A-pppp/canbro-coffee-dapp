@@ -35,8 +35,8 @@ public class BlockchainServiceImpl implements IBlockchainService {
 
         String blockchainCode = blockchainRequest.getBlockchainCode();
         String blockchainName = blockchainRequest.getBlockchainName();
-        Integer blockchainState = blockchainRequest.getBlockchainState();
-        int page = blockchainRequest.getPage();
+        int blockchainState = blockchainRequest.getBlockchainState();
+        int page = blockchainRequest.getPage()-1;
         int size = blockchainRequest.getSize();
         // 构建查询条件
         QueryWrapper<Blockchain> queryWrapper = new QueryWrapper<>();
@@ -46,19 +46,21 @@ public class BlockchainServiceImpl implements IBlockchainService {
         if (StrUtil.isNotBlank(blockchainName)){
             queryWrapper.eq("blockchain_name", blockchainName);
         }
-        if (!Objects.isNull(blockchainState)){
+        if (blockchainState>=0){
             queryWrapper.eq("blockchain_state", blockchainState);
         }
-
-        Page<Blockchain> blockchainPage = new Page<>(page, size);
+        Long l = blockchainMapper.selectCount(queryWrapper);
+        Page<Blockchain> blockchainPage = new Page<>(page, size, l,true);
 
         return blockchainMapper.selectPage(blockchainPage, queryWrapper);
+
     }
 
     @Override
     public boolean add(Blockchain blockchain) {
 
         blockchain.setCreateTime(Long.parseLong(DateUtil.format(new Date(), DatePattern.PURE_DATETIME_PATTERN)));
+        blockchain.setBlockchainState(0);
 
         int i = blockchainMapper.insert(blockchain);
 

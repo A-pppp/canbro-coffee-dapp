@@ -25,7 +25,7 @@ public class Blockchain implements Serializable {
      * 区块链id
      */
     @TableId("blockchain_id")
-    private String blockchainId;
+    private int blockchainId;
 
     /**
      * 区块链编码
@@ -48,7 +48,7 @@ public class Blockchain implements Serializable {
     private String blockchainNetworkType;
 
     /**
-     * 状态
+     * 状态 0创建 1启用 2禁用
      */
     private Integer blockchainState;
 

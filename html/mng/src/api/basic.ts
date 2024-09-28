@@ -8,19 +8,19 @@ export interface BlockchainQueryParams {
   size: number;
 }
 
+
 export interface Blockchain{
-  blockchainId: string,
+  blockchainId?: string,
   blockchainCode: string,
   blockchainName: string,
   blockchainMainNetwork: string,
   blockchainNetworkType: string,
-  blockchainState: number,
-  createBy: string,
-  createTime: number,
-  modifyBy: string,
-  modifyTime: number,
-  remark: string,
-
+  blockchainState?: number,
+  createBy?: string,
+  createTime?: number,
+  modifyBy?: string,
+  modifyTime?: number,
+  remark?: string,
 }
 
 export interface RetVo{
@@ -36,6 +36,11 @@ export interface Page{
   records: Blockchain[];
 }
 
+
 export function queryBlockchainPage(blockchainRequest: BlockchainQueryParams) {
-  return axios.post<RetVo>('/blockchain/page', blockchainRequest);
+  return axios.post<Page>('/blockchain/page', blockchainRequest);
+}
+
+export function addBlockchain(blockchain: Blockchain){
+  return axios.post<RetVo>('/blockchain/add', blockchain);
 }

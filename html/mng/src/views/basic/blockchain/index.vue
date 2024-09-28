@@ -157,17 +157,21 @@
         :size="size"
         @page-change="onPageChange"
       >
-        <template #index="{ rowIndex }">
-          {{ rowIndex + 1 + (pagination.current - 1) * pagination.pageSize }}
-        </template>
         <template #status="{ record }">
-          <span v-if="record.blockchainState === 'offline'" class="circle"></span>
-          <span v-else class="circle pass"></span>
-          {{ $t(`searchTable.form.status.${record.blockchainState}`) }}
+          <span v-if="record.blockchainState == 2" style="background-color: red" class="circle"></span>
+          <span v-else-if="record.blockchainState == 1" class="circle pass"></span>
+          <span v-else-if="record.blockchainState == 0" class="circle"></span>
+          {{ $t(`table.blockchain.blockchainState.${record.blockchainState}`) }}
         </template>
         <template #operations>
           <a-button v-permission="['admin']" type="text" size="small">
             {{ $t('searchTable.columns.operations.view') }}
+          </a-button>
+          <a-button v-permission="['admin']" type="text" size="small">
+            {{ $t('searchTable.columns.operations.state') }}
+          </a-button>
+          <a-button v-permission="['admin']" type="text" size="small">
+            {{ $t('searchTable.columns.operations.modify') }}
           </a-button>
         </template>
       </a-table>
@@ -194,7 +198,7 @@
     return {
       blockchainCode: '',
       blockchainName: '',
-      blockchainState: 0,
+      blockchainState: -1,
     };
   };
   const { loading, setLoading } = useLoading(true);
@@ -235,7 +239,6 @@
     {
       title: t('table.blockchain.BlockchainId'),
       dataIndex: 'blockchainId',
-      slotName: 'blockchainId',
     },
     {
       title: t('table.blockchain.blockchainCode'),
@@ -248,7 +251,6 @@
     {
       title: t('table.blockchain.blockchainMainNetwork'),
       dataIndex: 'blockchainMainNetwork',
-      slotName: 'blockchainMainNetwork',
     },
     {
       title: t('table.blockchain.blockchainNetworkType'),
@@ -257,6 +259,7 @@
     {
       title: t('table.blockchain.blockchainState'),
       dataIndex: 'blockchainState',
+      slotName: 'status',
     },
     {
       title: t('searchTable.columns.operations'),
@@ -267,6 +270,10 @@
   const blockchainStateOptions = computed<SelectOptionData[]>(() => [
     {
       label: t('table.blockchain.blockchainState.select'),
+      value: -1,
+    },
+    {
+      label: t('table.blockchain.blockchainState.create'),
       value: 0,
     },
     {
@@ -283,16 +290,17 @@
         blockchainCode: formModel.value.blockchainCode, 
         blockchainName: formModel.value.blockchainName,
         blockchainState: formModel.value.blockchainState,
-        page: pagination.current,
+        page: pagination.current + 1,
         size: pagination.pageSize 
       }
   ) => {
     setLoading(true);
     try {
       const { data } = await queryBlockchainPage(params);
-      renderData.value = data.data.records;
-      pagination.current = data.data.current;
-      pagination.total = data.data.total;
+
+      renderData.value = data.records;
+      pagination.current = data.current;
+      pagination.total = data.total;
     } catch (err) {
       console.log(err);
     } finally {
@@ -382,11 +390,13 @@
     },
     { deep: true, immediate: true }
   );
+  
 </script>
 
 <script lang="ts">
   export default {
     name: 'BlockchainIndex',
+
   };
 </script>
 

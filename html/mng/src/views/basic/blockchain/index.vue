@@ -163,8 +163,8 @@
           <span v-else-if="record.blockchainState == 0" class="circle"></span>
           {{ $t(`table.blockchain.blockchainState.${record.blockchainState}`) }}
         </template>
-        <template #operations>
-          <a-button v-permission="['admin']" type="text" size="small">
+        <template #operations="{ record }">
+          <a-button v-permission="['admin']" type="text" size="small" @click="toDetail(record.blockchainId)">
             {{ $t('searchTable.columns.operations.view') }}
           </a-button>
           <a-button v-permission="['admin']" type="text" size="small">
@@ -322,7 +322,11 @@
   };
 
   const toAdd = () =>{
-    router.push('blockchain/blockchainAdd');
+    router.push('blockchain/add');
+  };
+
+  const toDetail = (blockchainId: number) =>{
+    router.push(`blockchain/detail/${blockchainId}`);
   }
 
   const handleSelectDensity = (

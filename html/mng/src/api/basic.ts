@@ -10,6 +10,7 @@ export interface BlockchainQueryParams {
 
 
 export interface Blockchain{
+  [key: string]: any,
   blockchainId?: string,
   blockchainCode: string,
   blockchainName: string,
@@ -43,4 +44,8 @@ export function queryBlockchainPage(blockchainRequest: BlockchainQueryParams) {
 
 export function addBlockchain(blockchain: Blockchain){
   return axios.post<RetVo>('/blockchain/add', blockchain);
+}
+
+export function queryBlockchain(blockchainId: number){
+  return axios.get<Blockchain>(`/blockchain/detail/${blockchainId}`);
 }

@@ -67,8 +67,7 @@
 </template>
 
 <script lang="ts">
-import { reactive, ref } from 'vue';
-import { FormInstance } from '@arco-design/web-vue/es/form';
+import { reactive } from 'vue';
 import { addBlockchain, Blockchain } from '@/api/basic';
 import useLoading from '@/hooks/loading';
 import { useRouter } from 'vue-router';
@@ -96,7 +95,7 @@ export default {
         setLoading(true);
         try {
           await addBlockchain(blockchain);
-          // router.push('/basic/blockchain');
+          router.push('/basic/blockchain');
         } catch (err) {
           console.log(err);
         } finally {

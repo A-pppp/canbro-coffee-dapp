@@ -1,74 +1,57 @@
 <template>
     <div class="container">
-      <Breadcrumb :items="['menu.profile', 'menu.profile.basic']" />
+      <Breadcrumb :items="['menu.basic', 'menu.basic.blockchain', 'menu.basic.blockchain.detail']" />
       <a-space direction="vertical" :size="16" fill>
-        <a-card class="general-card" :title="$t('basicProfile.title.form')">
-          <template #extra>
-            <a-space>
-              <a-button>{{ $t('basicProfile.cancel') }}</a-button>
-              <a-button type="primary">
-                {{ $t('basicProfile.goBack') }}
-              </a-button>
-            </a-space>
-          </template>
-          <a-steps v-model:current="step" line-less class="steps">
-            <a-step>{{ $t('basicProfile.steps.commit') }}</a-step>
-            <a-step>{{ $t('basicProfile.steps.approval') }}</a-step>
-            <a-step>{{ $t('basicProfile.steps.finish') }}</a-step>
-          </a-steps>
-        </a-card>
         <a-card class="general-card">
-          <ProfileItem :loading="loading" :render-data="currentData" />
+          <a-space :size="16" direction="vertical" fill>
+            <a-descriptions style="margin-top: 20px" :data="renderData" size="large" title="基本信息" :column="1"/>
+
+          </a-space>
         </a-card>
-        <a-card class="general-card">
-          <ProfileItem :loading="preLoading" type="pre" :render-data="preData" />
-        </a-card>
-        <OperationLog />
       </a-space>
     </div>
   </template>
   
-  <script lang="ts" setup>
+  <script lang="ts" >
     import { ref } from 'vue';
     import useLoading from '@/hooks/loading';
-    import { queryProfileBasic, ProfileBasicRes } from '@/api/profile';
-    import ProfileItem from './components/profile-item.vue';
-    import OperationLog from './components/operation-log.vue';
-  
-    const { loading, setLoading } = useLoading(true);
-    const { loading: preLoading, setLoading: preSetLoading } = useLoading(true);
-    const currentData = ref<ProfileBasicRes>({} as ProfileBasicRes);
-    const preData = ref<ProfileBasicRes>({} as ProfileBasicRes);
-    const step = ref(1);
-    const fetchCurrentData = async () => {
-      try {
-        const { data } = await queryProfileBasic();
-        currentData.value = data;
-        step.value = 2;
-      } catch (err) {
-        // you can report use errorHandler or other
-      } finally {
-        setLoading(false);
-      }
-    };
-    const fetchPreData = async () => {
-      try {
-        const { data } = await queryProfileBasic();
-        preData.value = data;
-      } catch (err) {
-        // you can report use errorHandler or other
-      } finally {
-        preSetLoading(false);
-      }
-    };
-    fetchCurrentData();
-    fetchPreData();
-  </script>
-  
-  <script lang="ts">
+    import { queryBlockchain } from '@/api/basic';
+    import { useRoute } from 'vue-router';  
+    import { DescData } from '@arco-design/web-vue/es/descriptions/interface';
+    import { useI18n } from 'vue-i18n';
+    // const { t } = useI18n();
+
     export default {
       name: 'Basic',
-    };
+      setup(){
+       
+        const { setLoading } = useLoading(true);
+        const renderData = ref<DescData[]>([]);
+        const route = useRoute();
+        const blockchainId = parseInt(route.params.blockchainId as string);
+        const fetchCurrentData = async () => {
+          try {
+            const { data } = await queryBlockchain(blockchainId);
+            for(const key in data){
+              renderData.value.push({
+                // label: t('form.blockchain.'+key), 
+                label: key,
+                value: data[key]
+              })
+            }
+          } catch (err) {
+            console.log(err);
+          } finally {
+            setLoading(false);
+          }
+        };
+        fetchCurrentData();
+        return{
+          renderData,
+          blockchainId
+        }
+    }
+  };
   </script>
   
   <style scoped lang="less">

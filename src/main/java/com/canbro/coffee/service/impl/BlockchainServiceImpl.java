@@ -66,4 +66,11 @@ public class BlockchainServiceImpl implements IBlockchainService {
 
         return i>0;
     }
+
+    @Override
+    public Blockchain detail(String blockchainId) {
+        QueryWrapper<Blockchain> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("blockchain_id", blockchainId);
+        return blockchainMapper.selectOne(queryWrapper);
+    }
 }

@@ -3,6 +3,7 @@ export default {
 
   'menu.basic.blockchain': '区块链',
   'menu.basic.blockchain.add': '新建',
+  'menu.basic.blockchain.detail': '详情',
 
   'table.blockchain.BlockchainId': '区块链id',
   'table.blockchain.blockchainCode': '区块链编码',

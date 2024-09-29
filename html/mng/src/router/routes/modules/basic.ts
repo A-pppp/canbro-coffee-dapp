@@ -25,11 +25,22 @@ const BASIC: AppRouteRecordRaw = {
         
     },
     {
-      path: 'blockchain/blockchainAdd',
+      path: 'blockchain/add',
       name: 'BlockchainAdd',
       component: () => import('@/views/basic/blockchain/add.vue'),
       meta: {
         locale: 'menu.basic.blockchain.add',
+        requiresAuth: true,
+        roles: ['*'],
+        hideInMenu: true
+      },
+    },
+    {
+      path: `blockchain/detail/:blockchainId`,
+      name: 'BlockchainDetail',
+      component: () => import('@/views/basic/blockchain/detail.vue'),
+      meta: {
+        locale: 'menu.basic.blockchain.detail',
         requiresAuth: true,
         roles: ['*'],
         hideInMenu: true

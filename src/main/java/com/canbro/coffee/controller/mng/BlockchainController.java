@@ -46,4 +46,13 @@ public class BlockchainController {
         }
     }
 
+    @GetMapping("/detail/{blockchainId}")
+    public RetVo detail(@PathVariable("blockchainId") String blockchainId) {
+        Blockchain blockchain = blockchainService.detail(blockchainId);
+        if (blockchain==null){
+            return RetVo.failed();
+        }
+        return RetVo.success(blockchain);
+    }
+
 }

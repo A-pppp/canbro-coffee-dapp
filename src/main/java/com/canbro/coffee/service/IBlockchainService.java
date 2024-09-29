@@ -17,4 +17,6 @@ public interface IBlockchainService {
     Page<Blockchain> page(BlockchainRequest blockchainRequest);
 
     boolean add(Blockchain blockchain);
+
+    Blockchain detail(String blockchainId);
 }

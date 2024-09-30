@@ -18,5 +18,9 @@ public interface IBlockchainService {
 
     boolean add(Blockchain blockchain);
 
-    Blockchain detail(String blockchainId);
+    Blockchain detail(int blockchainId);
+
+    boolean state(int blockchainId);
+
+    boolean modify(Blockchain blockchain);
 }

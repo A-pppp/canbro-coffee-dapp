@@ -34,6 +34,7 @@ export default {
   'groupForm.form.label.parameterDescription': '参数说明',
   // https://vue-i18n.intlify.dev/guide/essentials/syntax.html#list-interpolation
   'groupForm.placeholder.description': `请填写参数说明，最多不超多200字。`,
+  'groupForm.back': '返回',
   'groupForm.submit': '提交',
   'groupForm.reset': '重置',
   'groupForm.submitSuccess': '提交成功',

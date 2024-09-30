@@ -4,6 +4,7 @@ import cn.hutool.core.date.DatePattern;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.canbro.coffee.controller.mng.vo.BlockchainRequest;
 import com.canbro.coffee.pojo.entity.Blockchain;
@@ -68,9 +69,56 @@ public class BlockchainServiceImpl implements IBlockchainService {
     }
 
     @Override
-    public Blockchain detail(String blockchainId) {
+    public Blockchain detail(int blockchainId) {
+
+        if (blockchainId<=0){
+            return null;
+        }
+
         QueryWrapper<Blockchain> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("blockchain_id", blockchainId);
         return blockchainMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public boolean state(int blockchainId) {
+        if (blockchainId<=0){
+            return false;
+        }
+        QueryWrapper<Blockchain> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("blockchain_id", blockchainId);
+        Blockchain blockchain = blockchainMapper.selectOne(queryWrapper);
+        if (blockchain==null){
+            return false;
+        }
+
+        Integer state = blockchain.getBlockchainState();
+        int modifyState = switch (state) {
+            case 0, 2 -> 1;
+            case 1 -> 2;
+            default -> 0;
+        };
+        blockchain.setBlockchainState(modifyState);
+        blockchain.setModifyTime(Long.parseLong(DateUtil.format(new Date(), DatePattern.PURE_DATETIME_PATTERN)));
+        UpdateWrapper<Blockchain> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.set("blockchain_id", blockchainId);
+
+        int update = blockchainMapper.update(blockchain, updateWrapper);
+
+        return update>0;
+    }
+
+    @Override
+    public boolean modify(Blockchain blockchain) {
+
+        if (blockchain==null || blockchain.getBlockchainId()<=0){
+            return false;
+        }
+        blockchain.setModifyTime(Long.parseLong(DateUtil.format(new Date(), DatePattern.PURE_DATETIME_PATTERN)));
+        UpdateWrapper<Blockchain> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("blockchain_id", blockchain.getBlockchainId());
+        int update = blockchainMapper.update(blockchain, updateWrapper);
+
+        return update>0;
     }
 }

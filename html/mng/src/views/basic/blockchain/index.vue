@@ -167,10 +167,10 @@
           <a-button v-permission="['admin']" type="text" size="small" @click="toDetail(record.blockchainId)">
             {{ $t('searchTable.columns.operations.view') }}
           </a-button>
-          <a-button v-permission="['admin']" type="text" size="small">
+          <a-button v-permission="['admin']" type="text" size="small" @click="state(record.blockchainId)">
             {{ $t('searchTable.columns.operations.state') }}
           </a-button>
-          <a-button v-permission="['admin']" type="text" size="small">
+          <a-button v-permission="['admin']" type="text" size="small" @click="toModify(record.blockchainId)">
             {{ $t('searchTable.columns.operations.modify') }}
           </a-button>
         </template>
@@ -237,7 +237,7 @@
   ]);
   const columns = computed<TableColumnData[]>(() => [
     {
-      title: t('table.blockchain.BlockchainId'),
+      title: t('table.blockchain.blockchainId'),
       dataIndex: 'blockchainId',
     },
     {
@@ -327,7 +327,15 @@
 
   const toDetail = (blockchainId: number) =>{
     router.push(`blockchain/detail/${blockchainId}`);
-  }
+  };
+
+  const state = (blockchainId: number) =>{
+
+  };
+
+  const toModify = (blockchainId: number) =>{
+    router.push(`blockchain/modify/${blockchainId}`);
+  };
 
   const handleSelectDensity = (
     val: string | number | Record<string, any> | undefined,

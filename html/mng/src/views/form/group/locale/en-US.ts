@@ -38,4 +38,6 @@ export default {
   'groupForm.submit': 'Submit',
   'groupForm.reset': 'Reset',
   'groupForm.submitSuccess': 'Submit Success',
+  'groupForm.back': 'back',
+
 };

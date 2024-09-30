@@ -54,6 +54,9 @@
       </a-space>
       <div class="actions">
         <a-space>
+          <a-button  @click="goBack">
+            {{ $t('groupForm.back') }}
+          </a-button>
           <a-button>
             {{ $t('groupForm.reset') }}
           </a-button>
@@ -105,10 +108,14 @@ export default {
       const onSubmitClick = () =>{
         post();
       };
+      const goBack = () => {
+          router.go(-1);
+      };
       return {
         formData,
         loading,
         onSubmitClick,
+        goBack,
         name: 'BlockchainAdd'
       }
     }

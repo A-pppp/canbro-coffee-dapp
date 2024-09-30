@@ -43,9 +43,18 @@ export function queryBlockchainPage(blockchainRequest: BlockchainQueryParams) {
 }
 
 export function addBlockchain(blockchain: Blockchain){
-  return axios.post<RetVo>('/blockchain/add', blockchain);
+  return axios.post<boolean>('/blockchain/add', blockchain);
 }
 
 export function queryBlockchain(blockchainId: number){
   return axios.get<Blockchain>(`/blockchain/detail/${blockchainId}`);
+}
+
+export function stateBlockchain(blockchainId: number){
+  return axios.get<boolean>(`/blockchain/state/${blockchainId}`);
+}
+
+
+export function modifyBlockchain(blockchain: Blockchain){
+  return axios.post<boolean>('/blockchain/modify', blockchain);
 }

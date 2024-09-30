@@ -46,8 +46,18 @@ public class BlockchainController {
         }
     }
 
+    @PostMapping("/modify")
+    public RetVo modify(@RequestBody Blockchain blockchain) {
+        boolean result = blockchainService.modify(blockchain);
+        if (result){
+            return RetVo.success();
+        }else {
+            return RetVo.failed();
+        }
+    }
+
     @GetMapping("/detail/{blockchainId}")
-    public RetVo detail(@PathVariable("blockchainId") String blockchainId) {
+    public RetVo detail(@PathVariable("blockchainId") int blockchainId) {
         Blockchain blockchain = blockchainService.detail(blockchainId);
         if (blockchain==null){
             return RetVo.failed();
@@ -55,4 +65,13 @@ public class BlockchainController {
         return RetVo.success(blockchain);
     }
 
+    @PostMapping("/state/{blockchainId}")
+    public RetVo state(@PathVariable("blockchainId") int blockchainId) {
+        boolean update = blockchainService.state(blockchainId);
+        if (update){
+            return RetVo.success();
+        }else {
+            return RetVo.failed();
+        }
+    }
 }
